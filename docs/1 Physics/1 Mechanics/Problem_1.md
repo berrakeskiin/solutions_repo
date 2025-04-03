@@ -71,17 +71,13 @@ $$
   is:
 
  $$
- 
  R = \frac{v_0^2 \sin(2\theta)}{g} 
- 
  $$
 
 This equation shows that the range is maximized when 
 
 $$
-
-\theta = 45^\circ 
-
+theta = 45^\circ 
 $$
 
 
@@ -93,10 +89,8 @@ $$
 The relationship between range and angle of projection can be analyzed by varying 
 
 $$
-
- \theta 
- 
- $$ 
+theta 
+  $$ 
  
  from 0° to 90°. Key observations:
 
