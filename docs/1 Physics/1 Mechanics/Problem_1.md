@@ -28,6 +28,7 @@ $$
  $$
  
   be the angle of projection,
+
 $$
  g 
 $$
@@ -59,9 +60,11 @@ $$
 
 
 The range 
+
 $$ 
 R 
 $$ 
+
 horizontal displacement when 
 
 $$
