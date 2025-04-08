@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forced Damped Pendulum Dynamics</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    pre {
+      background-color: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: Consolas, monospace;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .code-title {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Investigating the Dynamics of a Forced Damped Pendulum</h1>
+
+  <div class="section">
+    <h2>Overview</h2>
+    <p>
+      A forced damped pendulum is a classical system in physics used to study nonlinear dynamics, resonance, and chaotic behavior.
+      It is subject to three forces: gravitational (restoring), damping (resistance), and a periodic external driving force.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Mathematical Model</h2>
+    <p>The motion of the pendulum is governed by the following second-order differential equation:</p>
+    <p style="font-style: italic;">
+      &theta;'' + &gamma;&theta;' + &omega;<sub>0</sub><sup>2</sup> sin(&theta;) = F<sub>0</sub> cos(&omega;t)
+    </p>
+    <p>Where:</p>
+    <ul>
+      <li><b>&theta;</b> is the angular displacement</li>
+      <li><b>&gamma;</b> is the damping coefficient</li>
+      <li><b>&omega;<sub>0</sub></b> is the natural frequency</li>
+      <li><b>F<sub>0</sub></b> is the amplitude of the driving force</li>
+      <li><b>&omega;</b> is the driving frequency</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Python Simulation</h2>
+    <p>The following Python code simulates the pendulum's motion and plots the angular displacement over time:</p>
+    
+    <div class="code-title">Python Code:</div>
+    <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+def forced_damped_pendulum(t, y, gamma, omega0, F0, omega):
+    theta, omega_dot = y
+    dtheta_dt = omega_dot
+    domega_dt = -gamma * omega_dot - omega0**2 * np.sin(theta) + F0 * np.cos(omega * t)
+    return [dtheta_dt, domega_dt]
+
+# Parameters
+gamma = 0.5
+omega0 = 1.0
+F0 = 1.2
+omega = 2.0
+y0 = [0.1, 0]
+
+# Time span
+t_span = (0, 50)
+t_eval = np.linspace(*t_span, 1000)
+
+# Solve ODE
+sol = solve_ivp(forced_damped_pendulum, t_span, y0, t_eval=t_eval, args=(gamma, omega0, F0, omega))
+
+# Plot
+plt.figure(figsize=(8,5))
+plt.plot(sol.t, sol.y[0], label='Theta (rad)')
+plt.xlabel('Time (s)')
+plt.ylabel('Angular Displacement (rad)')
+plt.title('Forced Damped Pendulum Motion')
+plt.legend()
+plt.grid()
+plt.show()
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Interpretation</h2>
+    <p>
+      The resulting plot reveals how the pendulum's motion evolves under the influence of external forcing and damping. 
+      The system may exhibit stable oscillations, resonance, or even chaotic behavior depending on the parameters.
+    </p>
+  </div>
+
+</body>
+</html>

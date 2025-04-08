@@ -140,7 +140,7 @@ def projectile_range(v0, g=9.81):
 # Example Usage
 projectile_range(v0=20)
 ```
-
+[simulation](index.html)
 ---
 
 ## 5. Discussion & Limitations
