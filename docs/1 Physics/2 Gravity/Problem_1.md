@@ -98,7 +98,8 @@ plt.show()
 
 ## 📈 Graph
 
-*(Include the matplotlib plot output here as an image in GitHub)*
+
+![Kepler Plot](../../../../_pics/kepler_plot.png)
 
 ---
 
