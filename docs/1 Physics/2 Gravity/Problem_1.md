@@ -117,3 +117,6 @@ This allows astronomers to analyze more complex planetary and satellite paths.
 ## ✅ Conclusion
 
 Kepler's Third Law beautifully unifies gravity, motion, and astronomical observations. Our simulation confirms the proportionality between \( T^2 \) and \( R^3 \), enabling accurate prediction and understanding of orbital mechanics across the universe.
+
+plt.savefig("kepler_plot.png")
+
