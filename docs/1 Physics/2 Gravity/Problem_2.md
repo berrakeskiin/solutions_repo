@@ -12,22 +12,20 @@ These principles underpin modern space exploration — from launching satellites
 
 1. **First Cosmic Velocity**: Minimum speed to stay in a circular orbit near the surface of a planet.  
    $$
-
-   v_1 = \sqrt{\frac{GM}{R}}
-
-   $$
+    v_1 = \sqrt{\frac{GM}{R}} 
+    $$ 
 
 2. **Second Cosmic Velocity (Escape Velocity)**: Minimum speed to escape a planet’s gravity without further propulsion.  
-   $$
-
-   v_2 = \sqrt{2} \cdot v_1 = \sqrt{\frac{2GM}{R}}
    
+   $$ 
+   v_2 = \sqrt{2} \cdot v_1 = \sqrt{\frac{2GM}{R}} 
    $$
 
 3. **Third Cosmic Velocity**: Minimum speed to escape the gravity of the Solar System, starting from Earth’s orbit.  
-   $$
-   v_3 = \text{requires system-level energy balance, approximated with orbital mechanics}
-   $$
+  $$ 
+  v_3 
+  $$
+   requires system-level energy balance, approximated with orbital mechanics.
 
 ---
 
@@ -36,25 +34,18 @@ These principles underpin modern space exploration — from launching satellites
 Using energy conservation:  
 Kinetic energy:  
 $$
-
-E_k = \frac{1}{2}mv^2
-
-$$  
+ E_k = \frac{1}{2}mv^2 
+ $$  
 Gravitational potential:  
-
+$$ 
+E_p = -\frac{GMm}{R} 
 $$
 
-E_p = -\frac{GMm}{R}
+Set total energy to zero to find escape velocity:
 
 $$
-
-Set total energy to zero to find escape velocity:  
-
-$$
-
 \frac{1}{2}mv^2 - \frac{GMm}{R} = 0  
 \Rightarrow v = \sqrt{\frac{2GM}{R}}
-
 $$
 
 ---
@@ -101,6 +92,9 @@ plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+```
+
+---
 
 ## 📊 Graphical Results
 
