@@ -99,7 +99,7 @@ plt.show()
 ## 📈 Graph
 
 
-![Kepler Plot](../../../../_pics/kepler_plot.png)
+![Kepler Plot](_pics/kepler_plot.png)
 
 ---
 
