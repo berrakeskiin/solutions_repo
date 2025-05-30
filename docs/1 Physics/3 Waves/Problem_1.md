@@ -1,7 +1,6 @@
 # 🌊 Interference Patterns on a Water Surface
 
 This project simulates and visualizes the interference pattern formed by coherent wave sources located at the vertices of a square polygon.
-
 ## 🧮 Model
 
 The displacement at a point $(x, y)$ and time $t$ due to a source at $(x_i, y_i)$:
@@ -10,15 +9,18 @@ $$
 $$
 where:
 $$
-r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}, \quad k = \frac{2\pi}{\lambda}, \quad \omega = 2\pi f
+r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}
+$$
+$$
+k = \frac{2\pi}{\lambda}, \quad \omega = 2\pi f
 $$
 
 Total displacement from four sources:
 $$
 \Psi(x, y, t) = \sum_{i=1}^{4} \psi_i(x, y, t)
 $$
-
 ---
+
 
 ## 🏠 Step 1: Select a Regular Polygon
 
@@ -62,8 +64,14 @@ $$
 \Psi(x, y, 0) = A \sum_{i=1}^{4} \frac{1}{\sqrt{r_i}} \cos(k r_i)
 $$
 
-- Constructive interference: $k(r_i - r_j) = 2\pi m$
-- Destructive interference: $k(r_i - r_j) = (2m+1)\pi$
+- Constructive interference: 
+$$
+k(r_i - r_j) = 2\pi m
+$$
+- Destructive interference: 
+$$
+k(r_i - r_j) = (2m+1)\pi
+$$
 
 ### 💡 Symmetry Insight
 - At the center $(0,0)$:
