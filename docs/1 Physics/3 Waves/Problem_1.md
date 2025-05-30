@@ -63,12 +63,21 @@ $$
 
 ## 📈 Step 5: Interference Analysis
 
-At $t=0$:
-$$
-\Psi(x, y, 0) = A \sum_{i=1}^{4} \frac{1}{\sqrt{r_i}} \cos(k r_i)
+At 
+$$ 
+t=0
+$$:
+
 $$
 
-- Constructive interference occurs when $k(r_i - r_j) = 2\pi m$.
+\Psi(x, y, 0) = A \sum_{i=1}^{4} \frac{1}{\sqrt{r_i}} \cos(k r_i)
+
+$$
+
+- Constructive interference occurs when $$ 
+k(r_i - r_j) = 2\pi 
+m$$
+.
 - Destructive interference occurs when $k(r_i - r_j) = (2m+1)\pi$.
 
 ### Symmetry Insight
