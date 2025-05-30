@@ -3,31 +3,22 @@
 This project simulates and visualizes the interference pattern formed by coherent wave sources located at the vertices of a square polygon.
 ## 🧮 Model
 
-The displacement at a point $(x, y)$ and time $t$ due to a source at $(x_i, y_i)$:
-$$
-\psi_i(x, y, t) = \frac{A}{\sqrt{r_i}} \cos(k r_i - \omega t)
-$$
-where:
-$$
-r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}
-$$
-$$
-k = \frac{2\pi}{\lambda}, \quad \omega = 2\pi f
-$$
+The displacement at a point (x, y) and time t due to a source at (xᵢ, yᵢ):
+- ψᵢ(x, y, t) = A / √rᵢ * cos(k rᵢ - ω t)
+- where rᵢ = √((x - xᵢ)² + (y - yᵢ)²)
+- k = 2π / λ, ω = 2π f
 
 Total displacement from four sources:
-$$
-\Psi(x, y, t) = \sum_{i=1}^{4} \psi_i(x, y, t)
-$$
----
+- Ψ(x, y, t) = Σ₁⁴ ψᵢ(x, y, t)
 
 
 ## 🏠 Step 1: Select a Regular Polygon
 
-Let's choose a square centered at the origin $(0, 0)$ with side length $2d$. The vertices (wave sources) are:
-$$
-\mathbf{S}_1 = (d, d), \quad \mathbf{S}_2 = (d, -d), \quad \mathbf{S}_3 = (-d, -d), \quad \mathbf{S}_4 = (-d, d)
-$$
+Let's choose a square centered at the origin (0,0) with side length 2d. The vertices are:
+- S₁ = (d, d)
+- S₂ = (d, -d)
+- S₃ = (-d, -d)
+- S₄ = (-d, d)
 
 ---
 
@@ -56,39 +47,27 @@ $$
 $$
 
 ---
+---
 
 ## 📈 Step 5: Interference Analysis
 
-At $t=0$:
-$$
-\Psi(x, y, 0) = A \sum_{i=1}^{4} \frac{1}{\sqrt{r_i}} \cos(k r_i)
-$$
+At t=0:
+- Ψ(x, y, 0) = A Σ₁⁴ (1/√rᵢ) * cos(k rᵢ)
 
-- Constructive interference: 
-$$
-k(r_i - r_j) = 2\pi m
-$$
-- Destructive interference: 
-$$
-k(r_i - r_j) = (2m+1)\pi
-$$
+- Constructive interference occurs when:
+  - k(rᵢ - rⱼ) = 2π m
+- Destructive interference occurs when:
+  - k(rᵢ - rⱼ) = (2m+1)π
 
-### 💡 Symmetry Insight
-- At the center $(0,0)$:
-$$
-r_1 = r_2 = r_3 = r_4 = \sqrt{2} d
-$$
-$$
-\Psi(0, 0, 0) = 4 \cdot \frac{A}{\sqrt{2} d} \cos(k \sqrt{2} d)
-$$
-Maximized when:
-$$
-k \sqrt{2} d = 2\pi m
-$$
-- Along $y=0$:
-$$
-r_1 = r_2 = \sqrt{(x - d)^2 + d^2}, \quad r_3 = r_4 = \sqrt{(x + d)^2 + d^2}
-$$
+**Symmetry Insight:**
+- At the center (0,0):
+  - r₁ = r₂ = r₃ = r₄ = √2 d
+  - Ψ(0,0,0) = 4 A / √(2 d) * cos(k √2 d)
+  - Maximized when k √2 d = 2π m
+
+- Along y=0:
+  - r₁ = r₂ = √((x - d)² + d²)
+  - r₃ = r₄ = √((x + d)² + d²)
 
 ---
 
