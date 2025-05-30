@@ -1,105 +1,72 @@
 # 🌊 Interference Patterns on a Water Surface
 
-This project simulates and visualizes the interference pattern formed by coherent wave sources located at the vertices of a square polygon. It includes mathematical modeling, visualization, and optional animation.
+This project simulates and visualizes the interference pattern formed by coherent wave sources located at the vertices of a square polygon.
 
 ## 🧮 Model
 
-The displacement at a point $(x, y)$ and time $t$ due to a source at $(x_i, y_i)$ is given by:
-$$
-\psi_i(x, y, t) = \frac{A}{\sqrt{r_i}} \cos(k r_i - \omega t)
-$$
-where:
-- $r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}$
-- $k = \frac{2\pi}{\lambda}$ (wave number)
-- $\omega = 2\pi f$ (angular frequency)
+The displacement at a point (x, y) and time t due to a source at (x_i, y_i):
+- ψᵢ(x, y, t) = A / sqrt(rᵢ) * cos(k rᵢ - ω t)
+- where rᵢ = sqrt((x - xᵢ)² + (y - yᵢ)²)
+- k = 2π / λ
+- ω = 2π f
 
 Total displacement from four sources:
-$$
-\Psi(x, y, t) = \sum_{i=1}^{4} \psi_i(x, y, t)
-$$
-
----
+- Ψ(x, y, t) = Σ₁⁴ ψᵢ(x, y, t)
 
 ## 🏠 Step 1: Select a Regular Polygon
 
-Let's choose a square centered at the origin $(0, 0)$ with side length $2d$. The vertices (wave sources) are:
-$$
-\mathbf{S}_1 = (d, d), \quad \mathbf{S}_2 = (d, -d), \quad \mathbf{S}_3 = (-d, -d), \quad \mathbf{S}_4 = (-d, d)
-$$
-
----
+Let's choose a square centered at the origin (0,0) with side length 2d. The vertices are:
+- S₁ = (d, d)
+- S₂ = (d, -d)
+- S₃ = (-d, -d)
+- S₄ = (-d, d)
 
 ## 🌊 Step 2: Position the Sources
 
-- Four point sources at the square's corners.
-- All sources are coherent: same amplitude $A$, wavelength $\lambda$, frequency $f$, and phase $\phi = 0$.
-
----
+- Four point sources at the square’s corners.
+- All sources are coherent: same amplitude A, wavelength λ, frequency f, and phase φ=0.
 
 ## 🔬 Step 3: Wave Equations
 
 For each source:
-$$
-\psi_i(x, y, t) = \frac{A}{\sqrt{r_i}} \cos(k r_i - \omega t)
-$$
-with:
-$$
-r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}, \quad k = \frac{2\pi}{\lambda}, \quad \omega = 2\pi f
-$$
-
----
+- ψᵢ(x, y, t) = A / sqrt(rᵢ) * cos(k rᵢ - ω t)
+- rᵢ = sqrt((x - xᵢ)² + (y - yᵢ)²)
+- k = 2π / λ, ω = 2π f
 
 ## ➕ Step 4: Superposition of Waves
 
-The total displacement:
-$$
-\Psi(x, y, t) = A \sum_{i=1}^{4} \frac{1}{\sqrt{r_i}} \cos(k r_i - \omega t)
-$$
-
----
+- Ψ(x, y, t) = A Σ₁⁴ 1/sqrt(rᵢ) * cos(k rᵢ - ω t)
 
 ## 📈 Step 5: Interference Analysis
 
-At $t=0$:
-$$
-\Psi(x, y, 0) = A \sum_{i=1}^{4} \frac{1}{\sqrt{r_i}} \cos(k r_i)
-$$
+At t=0:
+- Ψ(x, y, 0) = A Σ₁⁴ 1/sqrt(rᵢ) * cos(k rᵢ)
 
-- Constructive interference: when $k(r_i - r_j) = 2\pi m$
-- Destructive interference: when $k(r_i - r_j) = (2m+1)\pi$
+- Constructive interference: k(rᵢ - rⱼ) = 2π m
+- Destructive interference: k(rᵢ - rⱼ) = (2m+1)π
 
 ### 💡 Symmetry Insight
-- At the center $(0,0)$:
-$$
-r_1 = r_2 = r_3 = r_4 = \sqrt{2} d
-$$
-$$
-\Psi(0, 0, 0) = 4 \cdot \frac{A}{\sqrt{2} d} \cos(k \sqrt{2} d)
-$$
-Maximized when:
-$$
-k \sqrt{2} d = 2\pi m
-$$
-- Along $y=0$:
-$$
-r_1 = r_2 = \sqrt{(x - d)^2 + d^2}, \quad r_3 = r_4 = \sqrt{(x + d)^2 + d^2}
-$$
+- At the center (0,0):
+  - r₁ = r₂ = r₃ = r₄ = sqrt(2) d
+  - Ψ(0,0,0) = 4 A / sqrt(2 d) * cos(k sqrt(2) d)
+  - Maximized when k sqrt(2) d = 2π m
 
----
+- Along y=0:
+  - r₁ = r₂ = sqrt((x - d)² + d²)
+  - r₃ = r₄ = sqrt((x + d)² + d²)
 
 ## 🎨 Step 6: Visualization (Python)
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Parameters
 A, lambda_, f, d = 1, 1, 1, 2
 k, omega = 2*np.pi/lambda_, 2*np.pi*f
 x = np.linspace(-5, 5, 500)
 y = np.linspace(-5, 5, 500)
 X, Y = np.meshgrid(x, y)
 r = [np.sqrt((X - dx)**2 + (Y - dy)**2) for dx, dy in [(d,d), (d,-d), (-d,-d), (-d,d)]]
-Psi = sum(A / np.sqrt(ri) * np.cos(k * ri) for ri in r)
+Psi = sum(A/np.sqrt(ri) * np.cos(k*ri) for ri in r)
 
 plt.figure(figsize=(8,8))
 plt.contourf(X, Y, Psi, levels=200, cmap='RdBu')
